@@ -20,7 +20,8 @@
 		mkdir(__DIR__.'/data/out/', 0777, true);
 	}
 
-
+	$maior = 0;
+	$menor = 0;
 	// Definindo diretorio 
 	$dh = dir ("data/in/");
 
@@ -46,7 +47,7 @@
 						$result_client[] = insertClient($explode_file);
 						break;	
 					case 003:
-						$result_sales[] = insertSales($explode_file);
+						$result_sales[] = insertSales($explode_file, $maior, $menor);
 						break;
 				}
 			}	
@@ -65,7 +66,7 @@
 	$arquivo = fopen('data/out/retorno.done.dat','w');
 	fwrite($arquivo, "Quantidade de clientes: ".$count_client."\r\r");
 	fwrite($arquivo, "Quantidade de Vendedor: ".$count_seller."\r\r");
-	fwrite($arquivo, "Id da venda mais cara: \r\r");
+	fwrite($arquivo, "Id da venda mais cara: ".$menor."\r\r");
 	fwrite($arquivo, "Pior vendedor de todos os tempos: \r\r");
 
 

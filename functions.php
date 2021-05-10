@@ -21,7 +21,7 @@ function insertClient($file) {
 	return$client_info;
 }
 // Inserir vendas
-function insertSales($file) {
+function insertSales($file, &$maior, &$menor) {
 
 	$sales_info['id'] = $file[0];
 	$sales_info['id_vendedor'] = $file[1];
@@ -49,6 +49,14 @@ function insertSales($file) {
 		
 		$count++ ;
 
+	}
+
+	foreach($sales_info['venda']['lista'] as $lista) {
+		
+		if($lista['valor_venda'] > $maior) {
+			$maior = $lista['valor_venda'];
+			$menor = $lista['id'];
+		}
 	}
 	
 	return $sales_info;
