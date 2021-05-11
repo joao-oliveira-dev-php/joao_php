@@ -56,7 +56,7 @@ function insertSales($file, &$expensive_sale, &$id_expensive_sale, &$value_sale,
 		// Definindo Valor total das vendas
 		$sales_info['valor_total_venda'] = ($formater2[1] * $formater2[2]) + $sales_info['valor_total_venda'];
 
-		if($sales_info['valor_total_venda'] < $value_sale) {
+		if($sales_info['valor_total_venda'] < $value_sale || $value_sale == null) {
 			$value_sale = $sales_info['valor_total_venda'];
 			$name_value_sale = $sales_info['nome_vendedor'];
 		}

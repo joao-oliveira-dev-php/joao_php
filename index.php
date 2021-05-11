@@ -22,7 +22,7 @@
 
 	$expensive_sale = 0;
 	$id_expensive_sale = 0;
-	$value_sale = 9999999999999999999999;
+	$value_sale = null;
 	$name_value_sale = '';
 	// Definindo diretorio 
 	$dh = dir ("data/in/");
