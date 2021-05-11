@@ -20,8 +20,10 @@
 		mkdir(__DIR__.'/data/out/', 0777, true);
 	}
 
-	$maior = 0;
-	$menor = 0;
+	$expensive_sale = 0;
+	$id_expensive_sale = 0;
+	$value_sale = 9999999999999999999999;
+	$name_value_sale = '';
 	// Definindo diretorio 
 	$dh = dir ("data/in/");
 
@@ -47,7 +49,7 @@
 						$result_client[] = insertClient($explode_file);
 						break;	
 					case 003:
-						$result_sales[] = insertSales($explode_file, $maior, $menor);
+						$result_sales[] = insertSales($explode_file, $expensive_sale, $id_expensive_sale, $value_sale, $name_value_sale);
 						break;
 				}
 			}	
@@ -66,8 +68,8 @@
 	$arquivo = fopen('data/out/retorno.done.dat','w');
 	fwrite($arquivo, "Quantidade de clientes: ".$count_client."\r\r");
 	fwrite($arquivo, "Quantidade de Vendedor: ".$count_seller."\r\r");
-	fwrite($arquivo, "Id da venda mais cara: ".$menor."\r\r");
-	fwrite($arquivo, "Pior vendedor de todos os tempos: \r\r");
+	fwrite($arquivo, "Id da venda mais cara: ".$id_expensive_sale."\r\r");
+	fwrite($arquivo, "Pior vendedor de todos os tempos: ".$name_value_sale."\r\r");
 
 
 ?>
